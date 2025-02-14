@@ -1,67 +1,66 @@
 import webpack from 'webpack';
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
 
-export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
-
+export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     const fileLoader = {
-      test: /\.(png|jpg|gif)$/,
-      use: [{loader: 'file-loader'}],
-    }
+        test: /\.(png|jpg|gif)$/,
+        use: [{ loader: 'file-loader' }],
+    };
 
     const svgLoader = {
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    }
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    };
 
     const babelLoader = {
-      test: /\.(js|tsx|jsx)$/,
-      exclude: /node_modules/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env'],
-          "plugins": [
-            [
-              "i18next-extract",
-              {
-                locales: ['ru', 'en'],
-                keyAsDefaultValue: true,
-              }
-            ]
-          ],
-          }
-          }
-    }
+        test: /\.(js|tsx|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: 'babel-loader',
+            options: {
+                presets: ['@babel/preset-env'],
+                plugins: [
+                    [
+                        'i18next-extract',
+                        {
+                            locales: ['ru', 'en'],
+                            keyAsDefaultValue: true,
+                        },
+                    ],
+                ],
+            },
+        },
+    };
 
     const typescriptLoader = {
-      test: /\.tsx?$/,
-      use: 'ts-loader',
-      exclude: /node_modules/,
-    }
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+    };
 
     const cssLoader = {
-      test: /\.s[ac]ss$/i,
+        test: /\.s[ac]ss$/i,
         use: [
-          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-                modules: {
-                    auto: (resPath: string) => Boolean(resPath.includes('.module.')),
-                    localIdentName: isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:8]'
+            isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+            {
+                loader: 'css-loader',
+                options: {
+                    modules: {
+                        auto: (resPath: string) => Boolean(resPath.includes('.module.')),
+                        localIdentName: isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:8]',
+                    },
                 },
-            }
-        },
+            },
             'sass-loader',
-        ]
-    }
-   
-    return [ 
+        ],
+    };
+
+    return [
         fileLoader,
-        svgLoader,  
+        svgLoader,
         babelLoader,
         typescriptLoader,
         cssLoader,
-      ]
+    ];
 }
