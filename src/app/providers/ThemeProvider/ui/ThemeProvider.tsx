@@ -4,7 +4,7 @@ import
     from '../lib/ThemeContext';
 
 interface ThemeProviderProps {
-    initialTheme: Theme;
+    initialTheme?: Theme;
 }
 
 const defaultTheme = localStorage.getItem(
