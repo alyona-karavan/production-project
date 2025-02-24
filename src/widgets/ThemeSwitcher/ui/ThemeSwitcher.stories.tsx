@@ -8,7 +8,7 @@ interface ThemeSwitcherStoryProps {
 }
 
 export default {
-    title: 'wigets/ThemeSwitcher',
+    title: 'widgets/ThemeSwitcher',
     component: ThemeSwitcher,
     argTypes: {
         backgroundColor: { control: 'color' },

@@ -10,7 +10,7 @@ interface NavbarStoryProps {
 }
 
 export default {
-    title: 'widget/Navbar',
+    title: 'widgets/Navbar',
     component: Navbar,
     argTypes: {
         backgroundColor: { control: 'color' },
