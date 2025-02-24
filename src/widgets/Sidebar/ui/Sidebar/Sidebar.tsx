@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ThemeSwitcher } from 'widgest/ThemeSwitcher';
-import { LangSwitcher } from 'widgest/LangSwitcher/ui/LangSwitcher';
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { useTranslation } from 'react-i18next';

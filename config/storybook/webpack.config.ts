@@ -1,41 +1,46 @@
-import webpack, { RuleSetRule } from 'webpack';
+// @ts-ignore
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { BuildPaths } from '../build/types/config';
 
-export default ({ config }: {config: webpack.Configuration}) => {
+export default ({ config: originalConfig }: {config: webpack.Configuration}) => {
+    const config = { ...originalConfig };
     const paths: BuildPaths = {
         build: '',
         html: '',
         entry: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
     };
-
-    config.resolve?.modules?.push(paths.src);
-    config.resolve?.extensions?.push('.ts', '.tsx');
-
-    if (!config.module) {
-        // eslint-disable-next-line no-param-reassign
-        config.module = { rules: [] };
+    if (config.resolve) {
+        // @ts-ignore
+        config.resolve.modules.push(paths.src);
+        // @ts-ignore
+        config.resolve.extensions.push('.ts', '.tsx');
     }
 
-    if (config.module.rules) {
-        // eslint-disable-next-line no-param-reassign
-        config.module.rules = config.module.rules
-            .filter((rule): rule is RuleSetRule => !!rule && typeof rule === 'object')
-            .map((rule: RuleSetRule) => {
-                if (/svg/.test(rule.test as string)) {
-                    return { ...rule, exclude: /\.svg$/i };
-                }
-                return rule;
-            });
-    }
+    // @ts-ignore
+    // eslint-disable-next-line no-param-reassign
+    config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+        if (/svg/.test(rule.test as string)) {
+            return { ...rule, exclude: /\.svg$/i };
+        }
 
-    config.module.rules?.push({
+        return rule;
+    });
+
+    // @ts-ignore
+    config.module.rules.push({
         test: /\.svg$/,
         use: ['@svgr/webpack'],
     });
-    config.module.rules?.push(buildCssLoader(true));
+    // @ts-ignore
+    config.module.rules.push(buildCssLoader(true));
+
+    // @ts-ignore
+    config.plugins.push(new DefinePlugin({
+        __IS_DEV__: true,
+    }));
 
     return config;
 };
