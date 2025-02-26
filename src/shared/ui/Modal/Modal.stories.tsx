@@ -3,35 +3,16 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 import { Modal } from './Modal';
 
-interface ModalStoryProps {
-    className?: string;
-    children?: string;
-    isOpen?: boolean;
-    onClose?: () => void;
-}
-
 export default {
     title: 'shared/Modal',
     component: Modal,
     argTypes: {
-        className: { control: 'text' },
-        children: { control: 'text' },
-        isOpen: { control: 'boolean' },
-        onClose: { control: 'void' },
+        backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof Modal>;
 
-const Template: ComponentStory<typeof Modal> = (
-    {
-        className,
-        children,
-        isOpen,
-        onClose,
-    }: ModalStoryProps,
-) => (
-    <Modal className={className} isOpen={isOpen} onClose={onClose}>
-        {children}
-    </Modal>
+const Template: ComponentStory<typeof Modal> = (args) => (
+    <Modal {...args} />
 );
 
 export const Primary = Template.bind({});

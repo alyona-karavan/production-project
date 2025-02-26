@@ -4,40 +4,15 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 import { Button, ButtonSize, ButtonTheme } from './Button';
 
-interface ButtonStoryProps {
-    className?: string;
-    theme?: ButtonTheme;
-    children?: string;
-    size?: ButtonSize;
-    square?: boolean;
-}
-
 export default {
     title: 'shared/Button',
     component: Button,
     argTypes: {
         backgroundColor: { control: 'color' },
-        className: { control: 'text' },
-        theme: { control: 'select', options: Object.values(ButtonTheme) },
-        children: { control: 'text' },
-        size: { control: 'select', options: Object.values(ButtonSize) },
-        square: { control: 'boolean' },
     },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (
-    {
-        className,
-        theme,
-        children,
-        size,
-        square,
-    }: ButtonStoryProps,
-) => (
-    <Button className={className} theme={theme} size={size} square={square}>
-        {children}
-    </Button>
-);
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

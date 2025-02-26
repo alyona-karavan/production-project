@@ -3,37 +3,24 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 import { Loader } from './Loader';
 
-interface LoaderStoryProps {
-    className?: string;
-}
-
 export default {
     title: 'shared/Loader',
     component: Loader,
     argTypes: {
         backgroundColor: { control: 'color' },
-        className: {
-            control: 'text',
-            description: 'Custom class name for the Loader component',
-        },
+    },
+    args: {
+        to: '/',
     },
 } as ComponentMeta<typeof Loader>;
 
-const Template: ComponentStory<typeof Loader> = (
-    {
-        className,
-    }: LoaderStoryProps,
-) => (
-    <Loader className={className} />
+const Template: ComponentStory<typeof Loader> = (args) => (
+    <Loader {...args} />
 );
 
 export const Normal = Template.bind({});
-Normal.args = {
-    to: '/',
-};
+Normal.args = {};
 
 export const Dark = Template.bind({});
-Dark.args = {
-    to: '/',
-};
+Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
