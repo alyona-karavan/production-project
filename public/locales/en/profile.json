@@ -2,5 +2,10 @@
     "Профиль":"Profile",
     "Редактировать":"Edit",
     "Ваше имя":"Your first name",
-    "Ваша фамилия":"Your last name"
+    "Ваша фамилия":"Your last name",
+    "Некорректный возраст":"Inccorrect age",
+    "Некорректный региион":"Inccorrect country",
+    "Имя и фамилия обязательны":"Firstname and lastname are required",
+    "Данные не указаны":"Data not specified",
+    "Серверная ошибка при сохранении":"Server error"
 }
