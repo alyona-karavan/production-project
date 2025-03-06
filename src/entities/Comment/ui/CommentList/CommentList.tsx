@@ -33,6 +33,7 @@ export const CommentList = memo((props: CommentListProps) => {
                     <CommentCard
                         className={styles.comment}
                         comment={comment}
+                        key={comment.id}
                     />
                 ))
                 : <Text text={t('Комментарии отсутствуют')} />}
