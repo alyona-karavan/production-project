@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { ListBox } from './ListBox';
 
 export default {
@@ -8,44 +9,58 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [
+        (Story) => <div style={{ padding: 100 }}><Story /></div>,
+    ],
 } as ComponentMeta<typeof ListBox>;
 
 const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
 
-const items = [
-    { value: '1', content: 'Первый пункт' },
-    { value: '2', content: 'Второй пункт' },
-    { value: '3', content: 'Третий пункт', disabled: true },
-    { value: '4', content: 'Четвертый пункт' },
-];
-
 export const Normal = Template.bind({});
 Normal.args = {
-    items,
-    defaultValue: 'Выберите значение',
-    onChange: (value: string) => console.log(value),
+    value: '123',
+    items: [
+        { content: '1asfasfasf23', value: '123' },
+        { content: '1asfasfasf21233', value: '1232' },
+    ],
 };
 
-export const WithLabel = Template.bind({});
-WithLabel.args = {
-    items,
-    defaultValue: 'Выберите значение',
-    onChange: (value: string) => console.log(value),
-    label: 'Выберите пункт:',
+export const topLeft = Template.bind({});
+topLeft.args = {
+    direction: 'top left',
+    value: '123',
+    items: [
+        { content: '1asfasfasf23', value: '123' },
+        { content: '1asfasfasf21233', value: '1232' },
+    ],
 };
 
-export const ReadOnly = Template.bind({});
-ReadOnly.args = {
-    items,
-    value: '1',
-    onChange: (value: string) => console.log(value),
-    readonly: true,
+export const topRight = Template.bind({});
+topRight.args = {
+    direction: 'top right',
+    value: '123',
+    items: [
+        { content: '1asfasfasf23', value: '123' },
+        { content: '1asfasfasf21233', value: '1232' },
+    ],
 };
 
-export const TopDirection = Template.bind({});
-TopDirection.args = {
-    items,
-    defaultValue: 'Выберите значение',
-    onChange: (value: string) => console.log(value),
-    direction: 'top',
+export const bottomLeft = Template.bind({});
+bottomLeft.args = {
+    direction: 'bottom left',
+    value: '123',
+    items: [
+        { content: '1asfasfasf23', value: '123' },
+        { content: '1asfasfasf21233', value: '1232' },
+    ],
+};
+
+export const bottomRight = Template.bind({});
+bottomRight.args = {
+    direction: 'bottom right',
+    value: '123',
+    items: [
+        { content: '1asfasfasf23', value: '123' },
+        { content: '1asfasfasf21233', value: '1232' },
+    ],
 };
