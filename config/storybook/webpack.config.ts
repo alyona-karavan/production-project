@@ -11,6 +11,8 @@ export default ({ config: originalConfig }: {config: webpack.Configuration}) => 
         html: '',
         entry: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
+        locales: '',
+        buildLocales: '',
     };
     if (config.resolve) {
         // @ts-ignore

@@ -47,7 +47,7 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to'],
+                ignoreAttribute: ['data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap'],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 125 }],
@@ -60,6 +60,7 @@ module.exports = {
         'no-console': 'off',
         'react/no-array-index-key': 'off',
         'ulbi-tv-plugin/path-checker': 'error',
+        'arrow-body-style': 'off',
     },
     globals: {
         __IS_DEV__: true,
