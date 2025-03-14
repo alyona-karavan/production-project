@@ -15,7 +15,7 @@ interface ProfileCardProps {
     data?: Profile;
     isLoading?: boolean;
     error?: string;
-    readOnly?: boolean;
+    readonly?: boolean;
     onChangeFirstName?: (value: string) => void;
     onChangeLastName?: (value: string) => void;
     onChangeCity?: (value: string) => void;
@@ -33,7 +33,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         data,
         isLoading,
         error,
-        readOnly,
+        readonly,
         onChangeFirstName,
         onChangeLastName,
         onChangeAge,
@@ -66,11 +66,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
     }
 
     const mods: Mods = {
-        [styles.editing]: !readOnly,
+        [styles.editing]: !readonly,
     };
 
     return (
-        <VStack gap="8" max className={classNames(styles.ProfileCard, {}, [className])}>
+        <VStack gap="8" max className={classNames(styles.ProfileCard, mods, [className])}>
             {data?.avatar && (
                 <HStack justify="center" max className={styles.avatarWrapper}>
                     <Avatar src={data?.avatar} />
@@ -81,54 +81,56 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 placeholder={t('Ваше имя')}
                 className={styles.input}
                 onChange={onChangeFirstName}
-                readOnly={readOnly}
+                readonly={readonly}
+                data-testid="ProfileCard.firstname"
             />
             <Input
                 value={data?.lastname}
                 placeholder={t('Ваша фамилия')}
                 className={styles.input}
                 onChange={onChangeLastName}
-                readOnly={readOnly}
+                readonly={readonly}
+                data-testid="ProfileCard.lastname"
             />
             <Input
                 value={data?.age}
                 placeholder={t('Ваш возраст')}
                 className={styles.input}
                 onChange={onChangeAge}
-                readOnly={readOnly}
+                readonly={readonly}
             />
             <Input
                 value={data?.city}
                 placeholder={t('Город')}
                 className={styles.input}
                 onChange={onChangeCity}
-                readOnly={readOnly}
+                readonly={readonly}
             />
             <Input
                 value={data?.avatar}
                 placeholder={t('Введите ссылку на аватар')}
                 className={styles.input}
                 onChange={onChangeAvatar}
-                readOnly={readOnly}
+                readonly={readonly}
             />
             <Input
                 value={data?.username}
                 placeholder={t('Введите имя пользователя')}
                 className={styles.input}
                 onChange={onChangeUsername}
-                readOnly={readOnly}
+                readonly={readonly}
             />
             <CurrencySelect
                 className={styles.input}
                 value={data?.currency}
                 onChange={onChangeCurrency}
-                readonly={readOnly}
+                readonly={readonly}
             />
             <CountrySelect
                 className={styles.input}
                 value={data?.country}
                 onChange={onChangeCountry}
-                readonly={readOnly}
+                readonly={readonly}
             />
         </VStack>
     );
