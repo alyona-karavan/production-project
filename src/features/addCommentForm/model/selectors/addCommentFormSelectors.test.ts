@@ -24,6 +24,6 @@ describe('getLoginError', () => {
     });
     test('should work with empty state/text', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getAddCommentFormText(state as StateSchema)).toEqual(undefined);
+        expect(getAddCommentFormText(state as StateSchema)).toEqual('');
     });
 });
