@@ -63,6 +63,7 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'ulbi-tv-plugin/path-checker': 'error',
         'arrow-body-style': 'off',
+        'func-names': 'off',
     },
     globals: {
         __IS_DEV__: true,
