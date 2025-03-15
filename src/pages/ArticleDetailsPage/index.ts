@@ -4,6 +4,6 @@ export {
     ArticleDetailsPageAsync as ArticleDetailsPage,
 };
 
-export { ArticleDetailsCommentSchema } from './model/types/ArticleDetailsCommentSchema';
-export { ArticleDetailsRecomendationsSchema } from './model/types/ArticleDetailsRecomendationsSchema';
-export { ArticleDetailsPageSchema } from './model/types';
+export type { ArticleDetailsCommentSchema } from './model/types/ArticleDetailsCommentSchema';
+export type { ArticleDetailsRecomendationsSchema } from './model/types/ArticleDetailsRecomendationsSchema';
+export type { ArticleDetailsPageSchema } from './model/types';
