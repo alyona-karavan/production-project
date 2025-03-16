@@ -1,11 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 import { NotificationList } from './NotificationList';
 
 export default {
-    title: 'shared/NotificationList',
+    title: 'entities/Notification//NotificationList',
     component: NotificationList,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -16,4 +15,3 @@ const Template: ComponentStory<typeof NotificationList> = (args) => <Notificatio
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({})];
