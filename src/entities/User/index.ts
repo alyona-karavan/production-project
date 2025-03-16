@@ -14,7 +14,7 @@ export { isUserAdmin, isUserManager, getUserRoles } from './model/selectors/role
 
 export {
     UserRole,
-} from './model/consts/Userconsts';
+} from './model/consts/userConsts';
 
 export type {
     UserSchema,

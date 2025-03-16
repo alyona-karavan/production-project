@@ -60,13 +60,3 @@ CannotEdit.decorators = [StoreDecorator({
         },
     },
 })];
-
-export const Loading = Template.bind({});
-Loading.args = {
-    className: '',
-};
-Loading.decorators = [StoreDecorator({
-    articleDetails: {
-        isLoading: true,
-    },
-})];

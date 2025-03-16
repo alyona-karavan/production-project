@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import ArticleEditPage from './ArticleEditPage';
 
 export default {
@@ -16,6 +17,7 @@ export const CreatePage = Template.bind({});
 CreatePage.args = {
     className: '',
 };
+CreatePage.decorators = [StoreDecorator({})];
 
 export const EditPage = Template.bind({});
 EditPage.args = {
@@ -27,3 +29,4 @@ EditPage.parameters = {
         routeParams: { id: '1' },
     },
 };
+EditPage.decorators = [StoreDecorator({})];
