@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { ArticleDetails } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
-import { Page } from '@/widgets/Page/Page';
+import { Page } from '@/widgets/Page/ui/Page';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from '@/shared/ui/Stack';
 import { articleDetailsPageReducer } from '../../model/slices';
