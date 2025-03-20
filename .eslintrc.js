@@ -72,7 +72,13 @@ module.exports = {
         'no-console': 'off',
         'react/no-array-index-key': 'off',
         'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }],
-        'ulbi-tv-plugin/public-api-imports': ['error', { alias: '@' }],
+        'ulbi-tv-plugin/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+            },
+        ],
         'arrow-body-style': 'off',
         'func-names': 'off',
     },
