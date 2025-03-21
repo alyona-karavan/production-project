@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import { Theme } from '../../const/theme';
 import { createContext } from 'react';
+import { Theme } from '../../const/theme';
 
 export interface ThemeContextProps {
     theme?: Theme;
@@ -8,5 +8,3 @@ export interface ThemeContextProps {
 }
 
 export const ThemeContext = createContext<ThemeContextProps>({});
-
-

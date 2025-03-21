@@ -12,7 +12,7 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 
 import styles from './ArticleDetailsPage.module.scss';
-import ArticleRating from '@/features/articleRating/ui/ArticleRating/ArticleRating';
+import ArticleRating from '@/features/articleRating';
 
 interface ArticleDetailsPageProps {
     className?: string;

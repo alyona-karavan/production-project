@@ -3,7 +3,6 @@ import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleListItemSkeleton } from '@/entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import { Text, TextSize } from '@/shared/ui/Text';
-import { PAGE_ID } from '@/widgets/Page/ui/Page';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { Article } from '../../model/types/article';

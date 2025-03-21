@@ -1,6 +1,6 @@
 import {
     createEntityAdapter,
-    createSlice, PayloadAction,
+    createSlice,
 } from '@reduxjs/toolkit';
 
 import { Article } from '@/entities/Article';
