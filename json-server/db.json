@@ -724,15 +724,6 @@
         "MANAGER"
       ],
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
-    },
-    {
-      "id": "4",
-      "username": "testuser",
-      "password": "123",
-      "roles": [
-        "ADMIN"
-      ],
-      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
   "profile": [
@@ -801,6 +792,13 @@
       "rate": 3,
       "feedback": "",
       "id": "bcPnbbZ"
+    },
+    {
+      "userId": "1",
+      "articleId": "11",
+      "rate": 1,
+      "feedback": "dfdf",
+      "id": "OJp9dVW"
     }
   ],
   "profile-ratings": [
