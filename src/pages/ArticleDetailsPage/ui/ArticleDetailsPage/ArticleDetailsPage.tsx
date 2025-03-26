@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import { ArticleDetails } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
-import { Page } from '@/widgets/Page/ui/Page';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from '@/shared/ui/Stack';
 import { articleDetailsPageReducer } from '../../model/slices';
@@ -13,6 +12,8 @@ import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetails
 
 import styles from './ArticleDetailsPage.module.scss';
 import { ArticleRating } from '@/features/articleRating';
+import { getFeatureFlag } from '@/shared/lib/features';
+import { Page } from '@/widgets/Page';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -26,6 +27,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { className } = props;
     const { t } = useTranslation('article-details');
     const { id } = useParams<{id: string}>();
+    const isArticleRatingEnabled = getFeatureFlag('isArticleEnabled');
 
     if (!id) {
         return null;
@@ -37,7 +39,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    <ArticleRating articleId={id} />
+                    {isArticleRatingEnabled && <ArticleRating articleId={id} />}
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>
