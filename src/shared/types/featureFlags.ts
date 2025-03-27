@@ -1,4 +1,4 @@
 export interface FeatureFlags {
-    isArticleEnabled?: boolean;
+    isArticleRatingEnabled?: boolean;
     isCounterEnabled?: boolean;
 }
