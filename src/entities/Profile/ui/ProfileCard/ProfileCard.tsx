@@ -7,7 +7,7 @@ import { Profile } from '@/entities/Profile';
 import { Input } from '@/shared/ui/deprecated/Input';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { Country, CountrySelect } from '@/entities/Country';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import styles from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
