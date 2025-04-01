@@ -89,7 +89,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <VStack
-                gap="8"
+                gap="16"
                 max
                 className={classNames('', {}, [className])}
             >
@@ -107,8 +107,8 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                     isLoading={isLoading}
                     error={error}
                     readonly={readonly}
-                    onChangeFirstName={onChangeFirstname}
-                    onChangeLastName={onChangeLastname}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeLastname={onChangeLastname}
                     onChangeAge={onChangeAge}
                     onChangeCity={onChangeCity}
                     onChangeUsername={onChangeUsername}
