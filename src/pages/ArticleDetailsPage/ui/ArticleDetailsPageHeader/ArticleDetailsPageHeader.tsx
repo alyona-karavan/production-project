@@ -3,11 +3,11 @@ import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { getRouteArticleDetails, getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { getArticleDetailsData } from '@/entities/Article';
-import { getCanEditArticle } from '@/pages/ArticleDetailsPage/model/selectors/article';
+import { getCanEditArticle } from '../../model/selectors/article';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;
@@ -28,7 +28,7 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
         if (article) {
             navigate(getRouteArticleEdit(article.id));
         }
-    }, [article?.id, navigate]);
+    }, [article, navigate]);
 
     return (
         <HStack max justify="between" className={classNames('', {}, [className])}>

@@ -38,8 +38,10 @@ export default {
             '@': paths.src,
         };
 
-        // @ts-ignore
-        config!.module!.rules = config!.module!.rules!.map((rule: RuleSetRule) => {
+        
+        config!.module!.rules = config!.module!.rules!.map(
+            // @ts-ignore
+            (rule: RuleSetRule) => {
             if (/svg/.test(rule.test as string)) {
                 return { ...rule, exclude: /\.svg$/i };
             }
